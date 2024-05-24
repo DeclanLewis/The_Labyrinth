@@ -12,6 +12,8 @@ def fade():
         pygame.display.update()
         death_text = pygame.image.load("Images/Death_text.png")
         screen.blit(death_text, (440, 260))
+    if range == 600:
+        pygame.display.update()
 
 
 def blur():

@@ -12,6 +12,9 @@ class Door:
         self.new_y = new_y
         self.old_x = x_transform
         self.old_y = y_transform
+        self.rect.topleft = ((((new_x - x_transform)/2) + x), (((new_y - y_transform)/2) + y))
+        self.x = x
+        self.y = y
 
     def draw(self, screen):
         screen.blit(self.img, (self.rect.x, self.rect.y))
@@ -20,8 +23,9 @@ class Door:
 
         # check's if mouse is on door
         if self.rect.collidepoint(pos):
-            self.img = pygame.transform.smoothscale(self.img, (self.new_x, self.new_y))
+            self.rect.topleft = ((self.x - ((self.new_x - self.old_x) / 2)), ((self. y - (self.new_y - self.old_y) / 2)))
             self.img = pygame.transform.scale(self.img, (self.new_x, self.new_y))
+
             # sets value to true to load up new room
             if pygame.mouse.get_pressed()[0] and not self.clicked:
                 self.clicked = True
@@ -29,7 +33,9 @@ class Door:
                 self.clicked = False
 
         if not self.rect.collidepoint(pos):
-            self.img = pygame.transform.smoothscale(self.img, (self.old_x, self.old_y))
+            self.rect.topleft = (self.x, self.y)
+            self.img = pygame.transform.scale(self.img, (self.old_x, self.old_y))
+
 
 
 
