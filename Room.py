@@ -19,12 +19,14 @@ class Room:
             door.draw(screen)
 
     def start_music(self):
+        # stops than starts the music from the given resource file
         pygame.mixer.stop()
         pygame.mixer.music.load(self.music)
         pygame.mixer.music.play(-1)
         return True
 
     def play_speech(self):
+        # plays the speech given from the resources file
         speech = pygame.mixer.Sound(self.speech)
         speech.stop()
         speech.play()
@@ -32,6 +34,7 @@ class Room:
         return True
 
     def stop_speech(self):
+        # stops the speech given from the resources file
         speech = pygame.mixer.Sound(self.speech)
         speech.stop()
         print(f"Current speech {self.speech}")
@@ -44,11 +47,3 @@ class Room:
                 door.clicked = False
                 return door.destination
         return None
-
-
-
-
-
-
-
-

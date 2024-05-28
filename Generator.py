@@ -15,14 +15,14 @@ import pygame
 
 
 class Generator():
-    def __init__(self, image1, x, y, new_x, new_y, state):
+    def __init__(self, image1, x, y, new_x, new_y):
         self.img = pygame.image.load(image1)
         self.img = pygame.transform.smoothscale(self.img, (new_x, new_y))
         self.x = x
         self.y = y
-        self.new_x = new_x
+        self.new_x = new_x  
         self.new_y = new_y
-        self.state = state
+        self.state = False
         self. clicked = False
 
 

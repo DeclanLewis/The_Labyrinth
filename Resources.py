@@ -36,7 +36,7 @@ Park_room = Room("Images/Backgrounds/Forest_park.jpg", [Return, Park_room_path1,
 
 # ROOM: Bunker entrance:
 Bunker_entrance_door = Door(300, 200, "Images/Doors/Bunker_Door.png", "lab", 400, 300, 450, 350)
-#Bunker_entrance = Room("Images/Backgrounds/Bunker_entrance.jpg", [Return, Bunker_entrance_door])
+Bunker_entrance = Room("Images/Backgrounds/Bunker_entrance.jpg", [Return, Bunker_entrance_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Spider liar room:
 Spider_lair_path = Door(1000, 450, "Images/Arrows/Up_arrow.png", "spider", 100, 200, 150, 250)
@@ -55,7 +55,7 @@ rooms = {
     "hallway": hallway_room,
     "forest": forest_room,
     "park": Park_room,
-    #"bunker": Bunker_entrance,
+    "bunker": Bunker_entrance,
     "spider lair": Spider_lair,
     "spider": Spider,
 

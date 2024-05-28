@@ -23,6 +23,7 @@ class Door:
 
         # check's if mouse is on door
         if self.rect.collidepoint(pos):
+            # This will increase the size of the button from the centre
             self.rect.topleft = ((self.x - ((self.new_x - self.old_x) / 2)), ((self. y - (self.new_y - self.old_y) / 2)))
             self.img = pygame.transform.scale(self.img, (self.new_x, self.new_y))
 

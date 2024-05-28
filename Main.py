@@ -2,7 +2,7 @@ import pygame
 from Resources import rooms
 
 
-#fading
+# fading this fades the screen to black overtime.
 def fade():
     fade = pygame.Surface((1280, 720))
     fade.fill(black)
@@ -14,10 +14,6 @@ def fade():
         screen.blit(death_text, (440, 260))
     if range == 600:
         pygame.display.update()
-
-
-def blur():
-    pygame.transform.smoothscale(screen, (0, 0))
 
 #Startup
 pygame.init()
@@ -39,23 +35,14 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-
-
-    #check for generator
-    #generator = rooms[current_room].get_generator()
-    #if generator:
-    #    blur()
-    #    rooms[current_room].draw(screen2)
-
-
-    # Update current room
+    # Update current room and plays the necessary music
     destination = rooms[current_room].get_next_room()
     if destination and not destination == "main":
         current_room = destination
         rooms[current_room].start_music()
         rooms[current_room].play_speech()
 
-    # check for death screen
+    # check for death screen, and returns the player back to the main menu
     if destination == "main" and destination:
         current_room = destination
         rooms[current_room].start_music()
@@ -63,7 +50,7 @@ while run:
         death.play()
         fade()
 
-    # Draw the current room
+    # Draws the current room to the screen
     rooms[current_room].draw(screen)
 
     pygame.display.flip()
