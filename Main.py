@@ -49,9 +49,13 @@ while run:
         death = pygame.mixer.Sound("Sounds/Death.mp3")
         death.play()
         fade()
+        death_counter = death_counter + 1
+        print(death_counter)
 
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
+
+
 
     pygame.display.flip()
     clock.tick(fps)
