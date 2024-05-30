@@ -18,6 +18,7 @@ def fade():
 #Startup
 pygame.init()
 clock = pygame.time.Clock()
+pygame.display.set_caption("The Labyrinth (I did this cuz dom forced me too)")
 fps = 60
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
