@@ -1,10 +1,11 @@
 import pygame
 from Resources import rooms
+import random
 
 
 # fading this fades the screen to black overtime.
 def fade():
-    fade = pygame.Surface((1280, 720))
+    fade = pygame.Surface(screen_size)
     fade.fill(black)
     for alpha in range(0, 600):
         fade.set_alpha(alpha)
@@ -12,16 +13,20 @@ def fade():
         pygame.display.update()
         death_text = pygame.image.load("Images/Death_text.png")
         screen.blit(death_text, (440, 260))
-    if range == 600:
-        pygame.display.update()
+    pygame.display.update()
 
 #Startup
 pygame.init()
 clock = pygame.time.Clock()
 pygame.display.set_caption("The Labyrinth (I did this cuz dom forced me too)")
 fps = 60
+screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
+trapped_chance = 0.00001
+trapped = False
+trapped2 = 5
+go = 1
 
 # game loop
 run= True
@@ -53,6 +58,28 @@ while run:
         death_counter = death_counter + 1
         print(death_counter)
 
+    if random.random() < trapped_chance:
+        print("trapped")
+        trapped2 = trapped2 + 20
+        trapped = True
+    else:
+        trapped = False
+    while trapped:
+        while trapped2 >10:
+            current_room = "main"
+            rooms[current_room].start_music()
+            death = pygame.mixer.Sound("Sounds/Death.mp3")
+            death.play()
+            fade()
+            trapped2 = trapped2 - 20
+            go = go + 1
+            if go == 2:
+                death_counter = death_counter + 1
+                print(death_counter)
+                go = go - 1
+                trapped = False
+
+    print("run")
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
 

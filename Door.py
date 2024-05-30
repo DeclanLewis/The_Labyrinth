@@ -30,9 +30,11 @@ class Door:
             # sets value to true to load up new room
             if pygame.mouse.get_pressed()[0] and not self.clicked:
                 self.clicked = True
+        # Resets self.clicked back to False
         if not pygame.mouse.get_pressed()[0]:
                 self.clicked = False
 
+        # Resets the size of the door back to its original
         if not self.rect.collidepoint(pos):
             self.rect.topleft = (self.x, self.y)
             self.img = pygame.transform.scale(self.img, (self.old_x, self.old_y))
