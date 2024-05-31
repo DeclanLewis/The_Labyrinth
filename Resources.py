@@ -1,3 +1,5 @@
+# The author of this file is Declan Lewis. Made 27th of February 2024.
+
 from Door import Door
 from Room import Room
 

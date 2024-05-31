@@ -1,3 +1,5 @@
+# The author of this file is Declan Lewis. Made 30th of May 2024.
+
 import random
 
 chance = 0.0000001

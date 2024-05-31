@@ -1,3 +1,6 @@
+# The author of this file is Declan Lewis. Made 16th of February 2024.
+
+
 import pygame
 class Door:
     def __init__(self, x, y, image, destination, x_transform, y_transform, new_x, new_y):

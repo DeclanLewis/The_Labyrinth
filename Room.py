@@ -1,3 +1,5 @@
+# The author of this file is Declan Lewis. Made 16th of February 2024.
+
 import pygame
 
 class Room:

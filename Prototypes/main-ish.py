@@ -1,3 +1,7 @@
+# The author of this file is Declan Lewis. Made 16th of February 2024.
+# This file was a copy of another file written by me.
+# This is also open source retrieved from github.
+
 import pygame, sys
 from button import Button
 
