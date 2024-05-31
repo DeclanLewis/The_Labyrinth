@@ -1,4 +1,8 @@
 # The author of this file is Declan Lewis. Made 16th of February 2024.
+# This software will be distributed with a GNU lesser general public license
+# Pygame also uses this GNU lesser general public license
+
+import pygame
 
 class Room:
     def __init__(self, image, Door1, Door1_height, Door1_width, Door2, Door2_height, Door2_width, Door3, Door3_height, Door3_width):

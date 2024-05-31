@@ -1,4 +1,6 @@
 # The author of this file is Declan Lewis. Made 16th of February 2024.
+# This software will be distributed with a GNU lesser general public license
+# Pygame also uses this GNU lesser general public license
 
 import pygame
 

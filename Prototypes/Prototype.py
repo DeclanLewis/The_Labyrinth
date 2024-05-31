@@ -1,5 +1,8 @@
 # The author of this file is Declan Lewis. Made 15th of december 2023.
 # Watched a tutorial on some of this to understand how it works create some myself
+# This software will be distributed with a GNU lesser general public license
+# Pygame also uses this GNU lesser general public license
+
 import pygame
 
 pygame.init()

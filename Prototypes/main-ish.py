@@ -1,6 +1,8 @@
 # The author of this file is Declan Lewis. Made 16th of February 2024.
 # This file was a copy of another file written by me.
 # This is also open source retrieved from github.
+# This software will be distributed with a GNU lesser general public license
+# Pygame also uses this GNU lesser general public license
 
 import pygame, sys
 from button import Button

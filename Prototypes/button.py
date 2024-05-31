@@ -1,6 +1,8 @@
 # The author of this file is Declan Lewis. Made 16th of February 2024.
 # This file was a copy of another file however written by me.
 # This is also open source retrieved from github.
+# This software will be distributed with a GNU lesser general public license
+# Pygame also uses this GNU lesser general public license
 
 class Button():
 	def __init__(self, image, pos, text_input, font, base_color, hovering_color):
