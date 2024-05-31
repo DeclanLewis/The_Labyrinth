@@ -23,10 +23,10 @@ fps = 60
 screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
-trapped_chance = 0.00001
+trapped_chance = 0.0001
 trapped = False
-trapped2 = 5
-go = 1
+stuck_in_trap = 5
+remove_trap = 1
 
 # game loop
 run= True
@@ -60,26 +60,25 @@ while run:
 
     if random.random() < trapped_chance:
         print("trapped")
-        trapped2 = trapped2 + 20
+        stuck_in_trap = stuck_in_trap + 20
         trapped = True
     else:
         trapped = False
     while trapped:
-        while trapped2 >10:
+        while stuck_in_trap >10:
             current_room = "main"
             rooms[current_room].start_music()
             death = pygame.mixer.Sound("Sounds/Death.mp3")
             death.play()
             fade()
-            trapped2 = trapped2 - 20
-            go = go + 1
-            if go == 2:
+            trapped2 = stuck_in_trap - 20
+            remove_trap = remove_trap + 1
+            if remove_trap == 2:
                 death_counter = death_counter + 1
                 print(death_counter)
-                go = go - 1
+                remove_trap = remove_trap - 1
                 trapped = False
 
-    print("run")
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
 
