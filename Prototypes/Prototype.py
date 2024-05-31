@@ -1,5 +1,5 @@
-#Watched a tutoial on some of this to understand how it works create some myself
-
+# The author of this file is Declan Lewis. Made 15th of december 2023.
+# Watched a tutorial on some of this to understand how it works create some myself
 import pygame
 
 pygame.init()

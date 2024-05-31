@@ -1,3 +1,5 @@
+# The author of this file is Declan Lewis. Made 15th of december 2023.
+#
 import pygame
 from Resources import rooms
 import random
@@ -23,7 +25,7 @@ fps = 60
 screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
-trapped_chance = 0.0001
+trapped_chance = 0.00001
 trapped = False
 stuck_in_trap = 5
 remove_trap = 1
@@ -57,7 +59,7 @@ while run:
         fade()
         death_counter = death_counter + 1
         print(death_counter)
-
+    # This will have a chance to trap the player causing them to die.
     if random.random() < trapped_chance:
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
@@ -71,7 +73,7 @@ while run:
             death = pygame.mixer.Sound("Sounds/Death.mp3")
             death.play()
             fade()
-            trapped2 = stuck_in_trap - 20
+            stuck_in_trap = stuck_in_trap - 20
             remove_trap = remove_trap + 1
             if remove_trap == 2:
                 death_counter = death_counter + 1
