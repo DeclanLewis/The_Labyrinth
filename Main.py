@@ -4,6 +4,7 @@
 import pygame
 from Resources import rooms
 import random
+from Door import Door
 
 
 # fading this fades the screen to black overtime.
@@ -18,6 +19,7 @@ def fade():
         screen.blit(death_text, (440, 260))
     pygame.display.update()
 
+
 #Startup
 pygame.init()
 clock = pygame.time.Clock()
@@ -26,14 +28,16 @@ fps = 60
 screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
-trapped_chance = 0.00001
+trapped_chance = 0.01
 trapped = False
 stuck_in_trap = 5
 remove_trap = 1
+current_room = "main"
+# TRAPPED: notifies the player they have been trapped.
+trapped_button = Door(440, 260, "images/Trapped.png", current_room, 400, 200, 450, 225)
 
 # game loop
 run= True
-current_room = "main"
 death_counter = 0
 # previous_room = "start"
 rooms[current_room].play_speech()
@@ -68,19 +72,10 @@ while run:
     else:
         trapped = False
     while trapped:
-        while stuck_in_trap >10:
-            current_room = "main"
-            rooms[current_room].start_music()
-            death = pygame.mixer.Sound("Sounds/Death.mp3")
-            death.play()
-            fade()
-            stuck_in_trap = stuck_in_trap - 20
-            remove_trap = remove_trap + 1
-            if remove_trap == 2:
-                death_counter = death_counter + 1
-                print(death_counter)
-                remove_trap = remove_trap - 1
-                trapped = False
+        trapped_button.draw(screen)
+        if destination:
+            trapped = False
+        pygame.display.update()
 
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
