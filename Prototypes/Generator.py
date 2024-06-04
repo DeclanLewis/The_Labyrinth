@@ -1,3 +1,7 @@
+# The author of this file is Declan Lewis. Made 28th of April 2024.
+# This software will be distributed with a GNU lesser general public license
+# Pygame also uses this GNU lesser general public license
+
 import pygame
 
 
@@ -33,16 +37,3 @@ class Generator():
 
 
 
-        while stuck_in_trap >10:
-            current_room = "main"
-            rooms[current_room].start_music()
-            death = pygame.mixer.Sound("Sounds/Death.mp3")
-            death.play()
-            fade()
-            stuck_in_trap = stuck_in_trap - 20
-            remove_trap = remove_trap + 1
-            if remove_trap == 2:
-                death_counter = death_counter + 1
-                print(death_counter)
-                remove_trap = remove_trap - 1
-                trapped = False

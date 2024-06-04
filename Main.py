@@ -4,8 +4,6 @@
 import pygame
 from Resources import rooms
 import random
-from Door import Door
-
 
 # fading this fades the screen to black overtime.
 def fade():
@@ -28,18 +26,16 @@ fps = 60
 screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
-trapped_chance = 0.01
+trapped_chance = 0
 trapped = False
 stuck_in_trap = 5
 remove_trap = 1
-current_room = "main"
-# TRAPPED: notifies the player they have been trapped.
-trapped_button = Door(440, 260, "images/Trapped.png", current_room, 400, 200, 450, 225)
+
 
 # game loop
 run= True
 death_counter = 0
-# previous_room = "start"
+current_room = "bunker hallway"
 rooms[current_room].play_speech()
 
 while run:
@@ -64,18 +60,40 @@ while run:
         fade()
         death_counter = death_counter + 1
         print(death_counter)
-    # This will have a chance to trap the player causing them to die.
-    if random.random() < trapped_chance:
+    # This will have a chance to trap the player causing them to die in trapped rooms.
+    if random.random() < trapped_chance and current_room == "lab":
+        print("trapped")
+        stuck_in_trap = stuck_in_trap + 20
+        trapped = True
+    else:
+        trapped = False
+    if random.random() < trapped_chance and current_room == "":
+        print("trapped")
+        stuck_in_trap = stuck_in_trap + 20
+        trapped = True
+    else:
+        trapped = False
+    if random.random() < trapped_chance and current_room == "":
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
     else:
         trapped = False
     while trapped:
-        trapped_button.draw(screen)
-        if destination:
-            trapped = False
-        pygame.display.update()
+        while stuck_in_trap >10:
+            current_room = "main"
+            rooms[current_room].start_music()
+            death = pygame.mixer.Sound("Sounds/Death.mp3")
+            death.play()
+            fade()
+            stuck_in_trap = stuck_in_trap - 20
+            remove_trap = remove_trap + 1
+            if remove_trap == 2:
+                death_counter = death_counter + 1
+                print(death_counter)
+                remove_trap = remove_trap - 1
+                trapped = False
+
 
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
