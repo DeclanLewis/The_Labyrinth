@@ -26,7 +26,7 @@ fps = 60
 screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
-trapped_chance = 0
+trapped_chance = 0.005
 trapped = False
 stuck_in_trap = 5
 remove_trap = 1
@@ -35,7 +35,7 @@ remove_trap = 1
 # game loop
 run= True
 death_counter = 0
-current_room = "bunker hallway"
+current_room = "bunker common room"
 rooms[current_room].play_speech()
 
 while run:
@@ -65,23 +65,18 @@ while run:
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
-    else:
-        trapped = False
     if random.random() < trapped_chance and current_room == "":
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
-    else:
-        trapped = False
     if random.random() < trapped_chance and current_room == "":
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
-    else:
-        trapped = False
     while trapped:
         while stuck_in_trap >10:
             current_room = "main"
+            print(current_room)
             rooms[current_room].start_music()
             death = pygame.mixer.Sound("Sounds/Death.mp3")
             death.play()

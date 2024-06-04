@@ -52,13 +52,17 @@ Bunker_entrance_door = Door2(300, 200, "Images/Doors/Bunker_Door.png", "bunker h
 Bunker_entrance = Room("Images/Backgrounds/Bunker_entrance.jpg", [Return, Bunker_entrance_door], "Sounds/Bunker_entrence_music.mp3", "Sounds/Bunker_entrence_speech.mp3")
 
 # ROOM: Bunker hallway:
-Bunker_hallway_door = Door2(450, 260, "Images/Doors/Bunker_hallway_door.png", "", 450, 180, 500, 200)
+Bunker_hallway_door = Door2(450, 260, "Images/Doors/Bunker_hallway_door.png", "bunker common room", 450, 180, 500, 200)
 Bunker_hallway = Room("Images/Backgrounds/Bunker_Hallway.jpg", [Return, Bunker_hallway_door],"Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Bunker_common room:
-Bunker_common_room_door = Door2()
-Bunker_common_room_hatch = Door2()
-Bunker_common_room = Room("Images/Background/Bunker_commonroom.jpg", [Return, Bunker_common_room_hatch, Bunker_common_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
+Bunker_common_room_door = Door2(560, 185, "Images/Doors/Bunker_commonroom_door.png", "bunker dark room", 450, 200, 500, 225)
+Bunker_common_room_hatch = Door2(200, 270, "Images/Doors/Buner_commonroom_hatch.png", "", 100, 100, 125,125)
+Bunker_common_room = Room("Images/Backgrounds/Bunker_commonroom.jpg", [Return, Bunker_common_room_hatch, Bunker_common_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
+
+# ROOM: Bunker_dark_room:
+Bunker_dark_room_light_switch = Door2(1080, 250, "Images/Doors/Light_switch_in_dark.png", "", 180, 200, 200, 225)
+Bunker_dark_room = Room("Images/Backgrounds/Dark_room.png", [Return, Bunker_dark_room_light_switch], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # The dictionary containing and identifying all the rooms
 rooms = {
@@ -74,5 +78,6 @@ rooms = {
     "spider": Spider,
     "bunker hallway": Bunker_hallway,
     "bunker common room": Bunker_common_room,
+    "bunker dark room": Bunker_dark_room,
 
 }
