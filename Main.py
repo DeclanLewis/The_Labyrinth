@@ -25,17 +25,21 @@ pygame.display.set_caption("The Labyrinth (I did this cuz dom forced me too)")
 fps = 60
 screen_size = (1280, 720)
 screen = pygame.display.set_mode((1280, 720))
+white = (255, 255, 255)
 black = (0, 0, 0)
 trapped_chance = 0.005
 trapped = False
 stuck_in_trap = 5
 remove_trap = 1
+death_counter = 0
+font = pygame.font.SysFont("Times New Roman", 50)
+font2 = pygame.font.SysFont("Times New Roman", 30)
+
 
 
 # game loop
 run= True
-death_counter = 0
-current_room = "bunker common room"
+current_room = "main"
 rooms[current_room].play_speech()
 
 while run:
@@ -93,6 +97,11 @@ while run:
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
 
+    if current_room == "main":
+        text1 = font.render("Times died:" + str(death_counter), 1, white)
+        text2 = font2.render("This game is best played with sound", 1, white)
+        screen.blit(text1, (900, 100))
+        screen.blit(text2, (50, 650))
 
 
     pygame.display.flip()
