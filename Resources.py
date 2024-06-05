@@ -57,12 +57,23 @@ Bunker_hallway = Room("Images/Backgrounds/Bunker_Hallway.jpg", [Return, Bunker_h
 
 # ROOM: Bunker_common room:
 Bunker_common_room_door = Door2(560, 185, "Images/Doors/Bunker_commonroom_door.png", "bunker dark room", 450, 200, 500, 225)
-Bunker_common_room_hatch = Door2(200, 270, "Images/Doors/Buner_commonroom_hatch.png", "", 100, 100, 125,125)
+Bunker_common_room_hatch = Door2(200, 270, "Images/Doors/Buner_commonroom_hatch.png", "bunker hatch room", 100, 100, 125,125)
 Bunker_common_room = Room("Images/Backgrounds/Bunker_commonroom.jpg", [Return, Bunker_common_room_hatch, Bunker_common_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
+# ROOM: Bunker_hatch_room:
+Bunker_hatch_room = Room("Images/Backgrounds/Hatch_room.jpg", [Return], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
+
 # ROOM: Bunker_dark_room:
-Bunker_dark_room_light_switch = Door2(1080, 250, "Images/Doors/Light_switch_in_dark.png", "", 180, 200, 200, 225)
+Bunker_dark_room_light_switch = Door2(1080, 250, "Images/Doors/Light_switch_in_dark.png", "light switch", 180, 200, 200, 225)
 Bunker_dark_room = Room("Images/Backgrounds/Dark_room.png", [Return, Bunker_dark_room_light_switch], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
+
+# ROOM: Light_switch:
+Light_switch = Door2(200, 100, "Images/Doors/Light_switch.png", "bunker light room", 800, 500, 1000, 600)
+Light_switch_room = Room("Images/Backgrounds/Light_room_switch.jpg", [Light_switch], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
+
+# ROOM: Bunker_light_room:
+Bunker_light_room_door = Door2(540, 320, "Images/Doors/Light_room_door.png", "", 150, 200, 175, 240)
+Bunker_light_room = Room("Images/Backgrounds/Light_room.jpg", [Return, Bunker_light_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # The dictionary containing and identifying all the rooms
 rooms = {
@@ -78,6 +89,9 @@ rooms = {
     "spider": Spider,
     "bunker hallway": Bunker_hallway,
     "bunker common room": Bunker_common_room,
+    "bunker hatch room": Bunker_hatch_room,
     "bunker dark room": Bunker_dark_room,
+    "light switch": Light_switch_room,
+    "bunker light room": Bunker_light_room,
 
 }

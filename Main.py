@@ -65,7 +65,7 @@ while run:
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
-    if random.random() < trapped_chance and current_room == "":
+    if random.random() < trapped_chance and current_room == "bunker hatch room":
         print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
