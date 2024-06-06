@@ -31,7 +31,7 @@ hallway_room = Room("Images/Backgrounds/1_door_hallway.jpg", [hallway_room_door_
 
 # ROOM: Forest room.
 forest_room_path_right = Door(850, 480, "Images/Arrows/Up_arrow.png", "park", 100, 200, 150, 250)
-forest_room_path_left = Door(200, 450, "Images/Arrows/Up_arrow.png", "front", 100, 200, 150, 250)
+forest_room_path_left = Door(200, 450, "Images/Arrows/Up_arrow.png", "", 100, 200, 150, 250)
 forest_room = Room("Images/Backgrounds/Forest_1.jpg", [forest_room_path_right, Return, forest_room_path_left], "Sounds/Forest_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Park
