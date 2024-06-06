@@ -1,5 +1,6 @@
 # The author of this file is Declan Lewis. Made 5th of February 2024.
 # Tutorial on this if i want to use keyboard things were added on top of the tutorial
+# My first backup, i made this when i was stuck in my main project.
 
 import pygame
 

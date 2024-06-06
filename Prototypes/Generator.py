@@ -1,6 +1,8 @@
 # The author of this file is Declan Lewis. Made 28th of April 2024.
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license
+# This was another scrapped idea for the game a generator that the player
+# will have to turn on activate parts of the map
 
 import pygame
 

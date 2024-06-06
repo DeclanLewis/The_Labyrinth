@@ -1,6 +1,7 @@
 # The author of this file is Declan Lewis. Made 30th of May 2024.
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license this is why i will be using a GNU
+# This was testing out the random libary for random occourances in the game e.g loud ambience sounds.
 
 import random
 

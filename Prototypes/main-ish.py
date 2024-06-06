@@ -3,6 +3,7 @@
 # This is also open source retrieved from github.
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license
+# This was me trying to understand how to make buttons and labels more effetively
 
 import pygame, sys
 from button import Button

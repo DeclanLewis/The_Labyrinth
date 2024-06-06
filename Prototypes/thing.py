@@ -1,6 +1,7 @@
 # The author of this file is Declan Lewis. Made 16th of February 2024.
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license
+# This was the first idea of how to make multiple doors for 1 room
 
 import pygame
 
