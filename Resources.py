@@ -9,9 +9,15 @@ from Door2 import Door2
 # BUTTON: Returns player to the start.
 Return = Door(-50, 630, "Images/Return.png", "start", 300, 100, 300, 100)
 
-# ROOM: Main_meu.
+# BUTTON: Loads the tutorial for the player.
+Tutorial = Door2(50, 75, "Images/Tutorial_button.png", "main2", 300, 100, 350, 117)
+
+# ROOM: Main_menu.
 start_button = Door2(440, 260, "Images/Start_button.png", "start", 400, 200, 450, 225)
-main_menu = Room("Images/Main_menu_background.jpg", [start_button], "Sounds/no_sound.mp3", "Sounds/Introduction.mp3")
+main_menu = Room("Images/Main_menu_background.jpg", [start_button, Tutorial], "Sounds/no_sound.mp3", "Sounds/Introduction.mp3")
+
+# ROOM: Main_menu 2.
+main_menu2 = Room("Images/Main_menu_background.jpg", [start_button, Tutorial], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Starting room.
 start_room_door_1 = Door2(730, 280,"Images/Doors/Door1.png", "front", 140, 120, 190, 170)
@@ -78,6 +84,7 @@ Bunker_light_room = Room("Images/Backgrounds/Light_room.jpg", [Return, Bunker_li
 # The dictionary containing and identifying all the rooms
 rooms = {
     "main": main_menu,
+    "main2": main_menu2,
     "start": start_room,
     "front": front_room,
     "lab": lab_room,

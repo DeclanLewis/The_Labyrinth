@@ -7,7 +7,7 @@ class Door:
     def __init__(self, x, y, image, destination, x_transform, y_transform, new_x, new_y):
         # Class initialisation
         self.img = pygame.image.load(image)
-        self.img = pygame.transform.smoothscale(self.img, (x_transform, y_transform))
+        self.img = pygame.transform.scale(self.img,(x_transform, y_transform))
         self.rect = self.img.get_rect()
         self.rect.topleft = (x, y)
         self.destination = destination

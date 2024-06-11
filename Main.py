@@ -4,6 +4,7 @@
 import pygame
 from Resources import rooms
 import random
+import webbrowser
 
 # fading this fades the screen to black overtime.
 def fade():
@@ -34,6 +35,7 @@ remove_trap = 1
 death_counter = 0
 font = pygame.font.SysFont("Times New Roman", 50)
 font2 = pygame.font.SysFont("Times New Roman", 30)
+open_tutorial = 0
 
 
 
@@ -50,6 +52,14 @@ while run:
 
     # Update current room and plays the necessary music
     destination = rooms[current_room].get_next_room()
+
+    if destination and destination == "main2":
+        if open_tutorial < 1:
+            open_tutorial = open_tutorial + 1
+            webbrowser.open("https://www.youtube.com/watch?v=gMq55u-2vWs")
+
+
+
     if destination and not destination == "main":
         current_room = destination
         rooms[current_room].start_music()
@@ -57,13 +67,13 @@ while run:
 
     # check for death screen, and returns the player back to the main menu
     if destination == "main" and destination:
+        open_tutorial = 0
         current_room = destination
         rooms[current_room].start_music()
         death = pygame.mixer.Sound("Sounds/Death.mp3")
         death.play()
         fade()
         death_counter = death_counter + 1
-        print(death_counter)
     # This will have a chance to trap the player causing them to die in trapped rooms.
     if random.random() < trapped_chance and current_room == "lab":
         print("trapped")
@@ -79,8 +89,8 @@ while run:
         trapped = True
     while trapped:
         while stuck_in_trap >10:
+            open_tutorial = 0
             current_room = "main"
-            print(current_room)
             rooms[current_room].start_music()
             death = pygame.mixer.Sound("Sounds/Death.mp3")
             death.play()
@@ -89,7 +99,6 @@ while run:
             remove_trap = remove_trap + 1
             if remove_trap == 2:
                 death_counter = death_counter + 1
-                print(death_counter)
                 remove_trap = remove_trap - 1
                 trapped = False
 
@@ -97,12 +106,11 @@ while run:
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
 
-    if current_room == "main":
+    if current_room == "main" or current_room == "main2":
         text1 = font.render("Times died:" + str(death_counter), 1, white)
         text2 = font2.render("This game is best played with sound", 1, white)
         screen.blit(text1, (900, 100))
         screen.blit(text2, (50, 650))
-
 
     pygame.display.flip()
     clock.tick(fps)
