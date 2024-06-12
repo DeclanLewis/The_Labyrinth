@@ -6,6 +6,9 @@ from Door import Door
 from Room import Room
 from Door2 import Door2
 
+# BUTTON: the fight text to kill the player
+Fight = Door(440, 500, "Images/Doors/Fight_monster_text.png", "main", 400, 200, 400, 200)
+
 # BUTTON: Returns player to the start.
 Return = Door(-50, 630, "Images/Return.png", "start", 300, 100, 300, 100)
 
@@ -50,8 +53,7 @@ Spider_lair_path = Door(1000, 450, "Images/Arrows/Up_arrow.png", "spider", 100, 
 Spider_lair = Room("Images/Backgrounds/Spider_lair_entrance.jpg", [Return, Spider_lair_path], "Sounds/Spider_lair_entrance_music.wav", "Sounds/Spider_lair_entrance_speech.mp3")
 
 # DEATH: Spider encounter
-Spider_Fight = Door(440, 500, "Images/Doors/Fight_monster_text.png", "main", 400, 200, 400, 200)
-Spider = Room("Images/Backgrounds/Spider_death.jpg", [Spider_Fight, Return], "Sounds/Boss.wav", "Sounds/Spider_speech.mp3")
+Spider = Room("Images/Backgrounds/Spider_death.jpg", [Fight, Return], "Sounds/Boss.wav", "Sounds/Spider_speech.mp3")
 
 # ROOM: Bunker entrance:
 Bunker_entrance_door = Door2(300, 200, "Images/Doors/Bunker_Door.png", "bunker hallway", 400, 300, 450, 333)
@@ -61,25 +63,42 @@ Bunker_entrance = Room("Images/Backgrounds/Bunker_entrance.jpg", [Return, Bunker
 Bunker_hallway_door = Door2(450, 260, "Images/Doors/Bunker_hallway_door.png", "bunker common room", 450, 180, 500, 200)
 Bunker_hallway = Room("Images/Backgrounds/Bunker_Hallway.jpg", [Return, Bunker_hallway_door],"Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
-# ROOM: Bunker_common room:
+# ROOM: Bunker common room:
 Bunker_common_room_door = Door2(560, 185, "Images/Doors/Bunker_commonroom_door.png", "bunker dark room", 450, 200, 500, 225)
 Bunker_common_room_hatch = Door2(200, 270, "Images/Doors/Buner_commonroom_hatch.png", "bunker hatch room", 100, 100, 125,125)
 Bunker_common_room = Room("Images/Backgrounds/Bunker_commonroom.jpg", [Return, Bunker_common_room_hatch, Bunker_common_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
-# ROOM: Bunker_hatch_room:
+# ROOM: Bunker hatch room:
 Bunker_hatch_room = Room("Images/Backgrounds/Hatch_room.jpg", [Return], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
-# ROOM: Bunker_dark_room:
+# ROOM: Bunker dark room:
 Bunker_dark_room_light_switch = Door2(1080, 250, "Images/Doors/Light_switch_in_dark.png", "light switch", 180, 200, 200, 225)
 Bunker_dark_room = Room("Images/Backgrounds/Dark_room.png", [Return, Bunker_dark_room_light_switch], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
-# ROOM: Light_switch:
+# ROOM: Light switch:
 Light_switch = Door2(200, 100, "Images/Doors/Light_switch.png", "bunker light room", 800, 500, 1000, 600)
 Light_switch_room = Room("Images/Backgrounds/Light_room_switch.jpg", [Light_switch], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
-# ROOM: Bunker_light_room:
+# ROOM: Bunker light room:
 Bunker_light_room_door = Door2(540, 320, "Images/Doors/Light_room_door.png", "", 150, 200, 175, 240)
 Bunker_light_room = Room("Images/Backgrounds/Light_room.jpg", [Return, Bunker_light_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
+
+# ROOM: Light forest:
+Light_forest_left = Door()
+Light_forest_right = Door()
+Light_forest_room = Room("Images/Backgrounds/Light_forest.jpg", [Return, Light_forest_left, Light_forest_right], "Sounds/no_sounds.mp3", "no_sounds.mp3")
+
+# ROOM: log cabin:
+Enter_log_cabin = Door()
+Enter_log_cabin_room = Room("Images/Backgrounds/Log_cabin.jpg", [Return, Enter_log_cabin], "Sounds/no_sounds.mp3", "Sounds/no_sounds.mp3")
+
+# DEATH: Man with knife encounter
+Knife_fight = Room("Images/Backgrounds/Man_knife_fight.jpg", [Return, Fight], "Sounds/no_sounds.mp3", "Sounds/no_sounds.mp3")
+
+# ROOM: Lab entrance:
+Lab_entrence = Door()
+Lab_entrence_room = Room("Images/Backgrounds/Lab_entrence.jpg", [Return, Lab_entrence], "Sounds/no_sounds.mp3", "Sounds/no_sounds.mp3")
+
 
 # The dictionary containing and identifying all the rooms
 rooms = {
