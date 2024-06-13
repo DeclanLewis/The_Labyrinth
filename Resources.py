@@ -7,7 +7,7 @@ from Room import Room
 from Door2 import Door2
 
 # BUTTON: the fight text to kill the player
-Fight = Door(440, 500, "Images/Doors/Fight_monster_text.png", "main", 400, 200, 400, 200)
+Fight = Door(440, 300, "Images/Doors/Fight_monster_text.png", "main", 400, 200, 400, 200)
 
 # BUTTON: Returns player to the start.
 Return = Door(-50, 630, "Images/Return.png", "start", 300, 100, 300, 100)
@@ -40,7 +40,7 @@ hallway_room = Room("Images/Backgrounds/1_door_hallway.jpg", [hallway_room_door_
 
 # ROOM: Forest room.
 forest_room_path_right = Door(850, 480, "Images/Arrows/Up_arrow.png", "park", 100, 200, 150, 250)
-forest_room_path_left = Door(200, 450, "Images/Arrows/Up_arrow.png", "", 100, 200, 150, 250)
+forest_room_path_left = Door(200, 450, "Images/Arrows/Up_arrow.png", "light forest", 100, 200, 150, 250)
 forest_room = Room("Images/Backgrounds/Forest_1.jpg", [forest_room_path_right, Return, forest_room_path_left], "Sounds/Forest_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Park
@@ -84,20 +84,20 @@ Bunker_light_room_door = Door2(540, 320, "Images/Doors/Light_room_door.png", "",
 Bunker_light_room = Room("Images/Backgrounds/Light_room.jpg", [Return, Bunker_light_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Light forest:
-Light_forest_left = Door()
-Light_forest_right = Door()
-Light_forest_room = Room("Images/Backgrounds/Light_forest.jpg", [Return, Light_forest_left, Light_forest_right], "Sounds/no_sounds.mp3", "no_sounds.mp3")
+Light_forest_left = Door(600, 200, "Images/Arrows/Left_arrow.png", "lab room", 200, 100, 250, 150)
+Light_forest_right = Door(600, 300, "Images/Arrows/Right_arrow.png", "log cabin", 200, 100, 250, 150)
+Light_forest_room = Room("Images/Backgrounds/Light_forest.jpg", [Return, Light_forest_left, Light_forest_right], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: log cabin:
-Enter_log_cabin = Door()
-Enter_log_cabin_room = Room("Images/Backgrounds/Log_cabin.jpg", [Return, Enter_log_cabin], "Sounds/no_sounds.mp3", "Sounds/no_sounds.mp3")
+Enter_log_cabin = Door(550, 520, "Images/Arrows/Up_arrow.png", "man with knife", 100, 200, 150, 250)
+Enter_log_cabin_room = Room("Images/Backgrounds/Log_cabin.jpg", [Return, Enter_log_cabin], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # DEATH: Man with knife encounter
-Knife_fight = Room("Images/Backgrounds/Man_knife_fight.jpg", [Return, Fight], "Sounds/no_sounds.mp3", "Sounds/no_sounds.mp3")
+Knife_fight = Room("Images/Backgrounds/Man_knife_fight.jpg", [Return, Fight], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Lab entrance:
-Lab_entrence = Door()
-Lab_entrence_room = Room("Images/Backgrounds/Lab_entrence.jpg", [Return, Lab_entrence], "Sounds/no_sounds.mp3", "Sounds/no_sounds.mp3")
+Lab_entrance = Door(450, 530, "Images/Arrows/Up_arrow.png", "", 100, 200, 150, 250)
+Lab_entrance_room = Room("Images/Backgrounds/Lab_entrence.jpg", [Return, Lab_entrance], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 
 # The dictionary containing and identifying all the rooms
@@ -119,5 +119,9 @@ rooms = {
     "bunker dark room": Bunker_dark_room,
     "light switch": Light_switch_room,
     "bunker light room": Bunker_light_room,
+    "light forest": Light_forest_room,
+    "lab room": Lab_entrance_room,
+    "log cabin": Enter_log_cabin_room,
+    "man with knife": Knife_fight,
 
 }
