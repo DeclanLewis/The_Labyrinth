@@ -42,11 +42,3 @@ class Door:
         if not self.rect.collidepoint(pos):
             self.rect.topleft = (self.x, self.y)
             self.img = pygame.transform.scale(self.img, (self.old_x, self.old_y))
-
-
-
-
-
-
-
-

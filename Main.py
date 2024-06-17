@@ -50,7 +50,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    # Update current room and plays the necessary music
+    # Update current room and plays the necessary music.
     destination = rooms[current_room].get_next_room()
 
     if destination and destination == "main2":
@@ -65,7 +65,7 @@ while run:
         rooms[current_room].start_music()
         rooms[current_room].play_speech()
 
-    # check for death screen, and returns the player back to the main menu
+    # check for death screen, and returns the player back to the main menu.
     if destination == "main" and destination:
         open_tutorial = 0
         current_room = destination
@@ -105,7 +105,7 @@ while run:
 
     # Draws the current room to the screen
     rooms[current_room].draw(screen)
-
+    # This prints the death counter and audio text on the main screen.
     if current_room == "main" or current_room == "main2":
         text1 = font.render("Times died:" + str(death_counter), 1, white)
         text2 = font2.render("This game is best played with sound", 1, white)

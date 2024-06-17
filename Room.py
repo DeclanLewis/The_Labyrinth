@@ -34,14 +34,12 @@ class Room:
         speech = pygame.mixer.Sound(self.speech)
         speech.stop()
         speech.play()
-        print(f"Playing speech {self.speech}")
         return True
 
     def stop_speech(self):
         # stops the speech given from the resources file
         speech = pygame.mixer.Sound(self.speech)
         speech.stop()
-        print(f"Current speech {self.speech}")
 
     def get_next_room(self):
 

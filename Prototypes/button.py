@@ -3,7 +3,7 @@
 # This is also open source retrieved from github.
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license
-# This was me trying to understand how to make buttons and labels more effetively
+# This was me trying to understand how to make buttons and labels more effectively
 
 class Button():
 	def __init__(self, image, pos, text_input, font, base_color, hovering_color):
