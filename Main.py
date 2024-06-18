@@ -25,13 +25,14 @@ clock = pygame.time.Clock()
 pygame.display.set_caption("The Labyrinth (I did this cuz dom forced me too)")
 fps = 60
 screen_size = (1280, 720)
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode(screen_size)
 white = (255, 255, 255)
 black = (0, 0, 0)
 trapped_chance = 0.005
+Ambience_chance = 0.05
 trapped = False
 stuck_in_trap = 5
-remove_trap = 1
+remove_trap = 15
 death_counter = 0
 font = pygame.font.SysFont("Times New Roman", 50)
 font2 = pygame.font.SysFont("Times New Roman", 30)
