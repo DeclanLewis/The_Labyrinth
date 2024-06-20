@@ -39,8 +39,9 @@ screen_size = (1280, 720)
 screen = pygame.display.set_mode(screen_size)
 white = (255, 255, 255)
 black = (0, 0, 0)
-trapped_chance = 0.005
+trapped_chance = 0.0025
 Ambience_chance = 0.0002
+Ambience_chance2 = 0.0002
 trapped = False
 stuck_in_trap = 5
 remove_trap = 0
@@ -48,7 +49,6 @@ death_counter = 0
 font = pygame.font.SysFont("Times New Roman", 50)
 font2 = pygame.font.SysFont("Times New Roman", 30)
 open_tutorial = 0
-
 
 # Game loop.
 run = True
@@ -75,10 +75,14 @@ while run:
         rooms[current_room].start_music()
         rooms[current_room].play_speech()
 
-    # This wil scare the player with more dramatic sounds
-    if random.random() <= Ambience_chance:
+    # These wil scare the player with more dramatic sounds
+    if random.random() <= Ambience_chance and not current_room == "main" and not current_room == "main2" and not current_room == "main3" and not current_room == "win":
         sound = pygame.mixer.Sound("Sounds/Ambience_1.mp3")
         sound.play()
+
+    if random.random() <= Ambience_chance2 and not current_room == "main" and not current_room == "main2" and not current_room == "main3" and not current_room == "win":
+        sound2 = pygame.mixer.Sound("Sounds/Ambience_2.mp3")
+        sound2.play()
 
     # Check for death screen, and returns the player back to the main menu.
     if destination == "main" and destination:
@@ -92,17 +96,18 @@ while run:
 
     # This will have a chance to trap the player causing them to die in trapped rooms.
     if random.random() < trapped_chance and current_room == "lab":
-        print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
     if random.random() < trapped_chance and current_room == "bunker hatch room":
-        print("trapped")
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
-    if random.random() < trapped_chance and current_room == "":
-        print("trapped")
+    if random.random() < trapped_chance and current_room == "bunker dark room":
         stuck_in_trap = stuck_in_trap + 20
         trapped = True
+    if random.random() < trapped_chance and current_room == "lab room":
+        stuck_in_trap = stuck_in_trap + 20
+        trapped = True
+
     while trapped:
         # This is used to stop the player sound and visuals to from getting played multiple times.
         while stuck_in_trap > 10:
@@ -115,7 +120,9 @@ while run:
             stuck_in_trap = stuck_in_trap - 20
             remove_trap = remove_trap + 2
             if remove_trap == 2:
+                print(death_counter)
                 death_counter = death_counter + 1
+                print(death_counter)
                 remove_trap = remove_trap - 2
                 trapped = False
 
@@ -127,6 +134,20 @@ while run:
         text2 = font2.render("This game is best played with sound", 1, white)
         screen.blit(text1, (900, 100))
         screen.blit(text2, (50, 650))
+
+    # Resets the death counter after the player wins the game.
+    if current_room == "main3":
+        death_counter = 0
+
+    # This prints the winning text to the screen
+    if current_room == "win":
+        if death_counter <= 3:
+            text3 = font.render("Congratulations you died:" + str(death_counter) + " times, Good Job!", 1, white)
+            screen.blit(text3, (200, 25))
+        if death_counter > 3:
+            text4 = font.render("You died:" + str(death_counter) + " times, better luck next time!", 1, white)
+            screen.blit(text4, (250, 25))
+
 
     # Updates all the new inputs and displays it to the screen.
     pygame.display.flip()
