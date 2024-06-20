@@ -2,7 +2,9 @@
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license
 
+# The library I use to help run the game.
 import pygame
+
 class Door:
     def __init__(self, x, y, image, destination, x_transform, y_transform, new_x, new_y):
         # Class initialisation

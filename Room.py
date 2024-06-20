@@ -2,6 +2,7 @@
 # This software will be distributed with a GNU lesser general public license
 # Pygame also uses this GNU lesser general public license
 
+# The library I use to help run the game.
 import pygame
 
 class Room:
