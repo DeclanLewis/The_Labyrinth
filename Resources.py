@@ -22,6 +22,9 @@ main_menu = Room("Images/Main_menu_background.jpg", [start_button, Tutorial], "S
 # ROOM: Main_menu 2.
 main_menu2 = Room("Images/Main_menu_background.jpg", [start_button, Tutorial], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
+# ROOM: Main_menu 3:
+main_menu3 = Room("Images/Main_menu_background.jpg", [start_button, Tutorial], "Sounds/Winning_sound.mp3", "Sounds/no_sound.mp3")
+
 # ROOM: Starting room.
 start_room_door_1 = Door2(730, 280,"Images/Doors/Door1.png", "front", 140, 120, 190, 170)
 start_room = Room("Images/Backgrounds/StartRoom.jpg", [start_room_door_1, Return],"Sounds/StartRoom_music.wav" ,"Sounds/StartRoom_speech.mp3")
@@ -80,7 +83,7 @@ Light_switch = Door2(200, 100, "Images/Doors/Light_switch.png", "bunker light ro
 Light_switch_room = Room("Images/Backgrounds/Light_room_switch.jpg", [Light_switch], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Bunker light room:
-Bunker_light_room_door = Door2(540, 320, "Images/Doors/Light_room_door.png", "", 150, 200, 175, 240)
+Bunker_light_room_door = Door2(540, 320, "Images/Doors/Light_room_door.png", "win", 150, 200, 175, 240)
 Bunker_light_room = Room("Images/Backgrounds/Light_room.jpg", [Return, Bunker_light_room_door], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
 # ROOM: Light forest:
@@ -99,11 +102,16 @@ Knife_fight = Room("Images/Backgrounds/Man_knife_fight.jpg", [Return, Fight], "S
 Lab_entrance = Door(450, 530, "Images/Arrows/Up_arrow.png", "", 100, 200, 150, 250)
 Lab_entrance_room = Room("Images/Backgrounds/Lab_entrence.jpg", [Return, Lab_entrance], "Sounds/no_sound.mp3", "Sounds/no_sound.mp3")
 
+# ROOM: Winning screen:
+Main_menu_button = Door(540, 600, "Images/Main_menu_button.png", "main3", 200, 100, 225, 112)
+Exit_button = Door(540, 100, "Images/Quit_button.png", "exit", 200, 100, 225, 112)
+Winning_screen = Room("Images/Backgrounds/Winning_screen.png", [Exit_button, Main_menu_button], "Sounds/Winning_sound.mp3", "Sounds/Winning_speech.mp3")
 
 # The dictionary containing and identifying all the rooms
 rooms = {
     "main": main_menu,
     "main2": main_menu2,
+    "main3": main_menu3,
     "start": start_room,
     "front": front_room,
     "lab": lab_room,
@@ -123,5 +131,6 @@ rooms = {
     "lab room": Lab_entrance_room,
     "log cabin": Enter_log_cabin_room,
     "man with knife": Knife_fight,
+    "win": Winning_screen,
 
 }
