@@ -51,16 +51,16 @@ font2 = pygame.font.SysFont("Times New Roman", 30)
 open_tutorial = 0
 
 # Game loop.
-run = True
+Run = True
 current_room = "main"
 rooms["main3"].start_music()
 rooms[current_room].play_speech()
 
-while run:
+while Run:
     # Checks for player quitting the game
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            Run = False
 
     # Update current room and plays the necessary music.
     destination = rooms[current_room].get_next_room()
@@ -147,7 +147,6 @@ while run:
         if death_counter > 3:
             text4 = font.render("You died:" + str(death_counter) + " times, better luck next time!", 1, white)
             screen.blit(text4, (250, 25))
-
 
     # Updates all the new inputs and displays it to the screen.
     pygame.display.flip()
