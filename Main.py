@@ -120,9 +120,7 @@ while Run:
             stuck_in_trap = stuck_in_trap - 20
             remove_trap = remove_trap + 2
             if remove_trap == 2:
-                print(death_counter)
                 death_counter = death_counter + 1
-                print(death_counter)
                 remove_trap = remove_trap - 2
                 trapped = False
 
