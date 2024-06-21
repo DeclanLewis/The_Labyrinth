@@ -65,11 +65,13 @@ while Run:
     # Update current room and plays the necessary music.
     destination = rooms[current_room].get_next_room()
 
+    # This opens the tutorial video from the button on the main menu.
     if destination and destination == "main2":
         if open_tutorial < 1:
             open_tutorial = open_tutorial + 1
             webbrowser.open("https://www.youtube.com/watch?v=gMq55u-2vWs")
 
+    # This simulates the player traveling throuhg a 3D world.
     if destination and not destination == "main":
         current_room = destination
         rooms[current_room].start_music()
@@ -137,7 +139,7 @@ while Run:
     if current_room == "main3":
         death_counter = 0
 
-    # This prints the winning text to the screen
+    # These prints the winning text to the screen depending how many times the player has died.
     if current_room == "win":
         if death_counter <= 3:
             text3 = font.render("Congratulations you died:" + str(death_counter) + " times, Good Job!", 1, white)

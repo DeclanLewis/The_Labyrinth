@@ -31,6 +31,7 @@ while run:
     pygame.draw.rect(screen, (255, 255, 255), edge_right)
     pygame.draw.rect(screen, (255, 255, 255), bottom)
 
+    # These move the rectangle 5 pixels up, down, left and right.
     key = pygame.key.get_pressed()
     if jump and key[pygame.K_a] == True:
         player1.move_ip(-5, 0)

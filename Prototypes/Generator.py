@@ -10,7 +10,7 @@ import pygame
     for generator in self.generator:
         generator.draw(screen)
 
-
+    # This is ment to draw the generator to the screen.
     def generator_pop_up(self):
 
         for generator in self.generator:

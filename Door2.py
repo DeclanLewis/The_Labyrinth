@@ -22,6 +22,7 @@ class Door2:
         self.x = x
         self.y = y
 
+    # This is the draw function this will draw the door on the screen.
     def draw(self, screen):
         screen.blit(self.img, (self.rect.x, self.rect.y))
         # gets mouse position
