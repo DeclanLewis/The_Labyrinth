@@ -6,7 +6,7 @@ from Door import Door
 from Room import Room
 from Door2 import Door2
 
-# BUTTON: the fight text to kill the player
+# BUTTON: the fight text to fight monsters.
 Fight = Door(440, 300, "Images/Doors/Fight_monster_text.png", "main", 400, 200, 400, 200)
 
 # BUTTON: Returns player to the start.
